@@ -95,6 +95,9 @@ class FreeformWindow(
         private const val FREEFORM_PACKAGE = "com.libremobileos.freeform"
         private const val FREEFORM_LAYOUT = "view_freeform"
         private const val WINDOW_DESTROY_WAIT_MS = 10000L
+
+        // WindowManager.LayoutParams.PRIVATE_FLAG_FORCE_HARDWARE_ACCELERATED
+        private const val PRIVATE_FLAG_FORCE_HARDWARE_ACCELERATED = 1 shl 1
     }
 
     init {
@@ -336,7 +339,7 @@ class FreeformWindow(
                     WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or
                     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED or
                     WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM
-            privateFlags = privateFlags or WindowManager.LayoutParams.PRIVATE_FLAG_FORCE_HARDWARE_ACCELERATED
+            privateFlags = privateFlags or PRIVATE_FLAG_FORCE_HARDWARE_ACCELERATED
             format = PixelFormat.RGBA_8888
             windowAnimations = android.R.style.Animation_Dialog
         }
